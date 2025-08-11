@@ -9,13 +9,13 @@ const taskSchema=new mongoose.Schema({
 description:{type:String,default:null},
 priority:{
     type:String,enum:["Low","Medium","High"],default:"Medium"},
-    status:{type:String,enum:["pending","In Progress","Complete"],default:"Pending"},
+    status:{type:String,enum:["Pending","In Progress","Complete"],default:"Pending"},
     dueDate:{type:Date,required:true},
-    assignedTo:{type:mongoose.Schema.Types.ObjectId,ref:user},
+    assignedTo:{type:mongoose.Schema.Types.ObjectId,ref:"User"},
     createdBy:{type:mongoose.Schema.Types.ObjectId,ref:"User"},
     attachments:{type:String},
-    todoCheckList:{todoSchema},
-    progess:{type:Number,default:0}
+    todoCheckList:[todoSchema],
+    progress:{type:Number,default:0}
 
 },{
     timestamps:true

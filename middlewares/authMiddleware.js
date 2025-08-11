@@ -3,6 +3,7 @@ const User = require('../models/User');
 require('dotenv').config();
 
 // Middleware to protect routes
+
 const protectedUserMiddleware = async (req, res, next) => {
   try {
     let token = req.headers.authorization;

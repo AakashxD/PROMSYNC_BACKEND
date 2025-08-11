@@ -4,6 +4,9 @@ const path=require('path')
 const dotenv=require('dotenv').config();
 const connectDB =require('./config/db.config.js');
 const authRoutes=require('./routes/authRoutes.js');
+const userRoutes=require('./routes/userRoutes.js')
+const taskRoutes=require('./routes/taskRoutes.js');
+const dashboardRoutes=require('./routes/dashboardRoutes.js')
 const app=express()
 app.use(
     cors({
@@ -20,8 +23,9 @@ app.use(express.json())
 
 // Routes
 app.use('/api/auth',authRoutes);
-// app.use('/api/users',userRoutes);
-// app.use('/api/tasks',taskRoutes);
+app.use('/api/users',userRoutes);
+app.use('/api/tasks',taskRoutes);
+app.use('/api/dashboard',dashboardRoutes)
 // app.use('/api/reports',reportRoutes);
 
 app.listen(process.env.PORT,()=>{

@@ -4,10 +4,10 @@ const router=express.Router();
 
 const {protectedUserMiddleware, protectAdminMiddleware} =require('../middlewares/authMiddleware.js')
 const {deleteUser,getUserByid,getUsers}=require('../controllers/userController.js')
-
+console.log("inside the User router");
 router.get('/',protectedUserMiddleware,protectAdminMiddleware,getUsers);
 
-router.get('/',protectedUserMiddleware,protectAdminMiddleware,getUserByid);
+router.get('/:id',protectedUserMiddleware,protectAdminMiddleware,getUserByid);
 
 router.delete('/',protectedUserMiddleware,protectAdminMiddleware,deleteUser);
 
